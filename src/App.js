@@ -2,14 +2,21 @@
 import './App.css';
 import Output from "./Output";
 import Input from "./Input";
+import Header from "./Header";
 
 
 
 function App() {
   return (
     <div className="app">
-      <Output/>
-      <Input/>
+      <div className="app__header">
+        <Header />
+      </div>
+      
+      <div className="app__body">
+        <Input />
+        <Output />
+      </div>
     </div>
   );
 }

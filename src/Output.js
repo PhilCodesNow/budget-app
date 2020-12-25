@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import "./Output.css";
+
+
 
 function Output() {
     return (
