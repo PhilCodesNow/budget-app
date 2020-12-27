@@ -21,6 +21,7 @@ function App() {
     setBudgetItems(prevBudgetItems => {
       return [...prevBudgetItems, {name: name, price: price}]
     })
+
     budgetItemRef.current.value = null
     budgetItemPriceRef.current.value = null
   
