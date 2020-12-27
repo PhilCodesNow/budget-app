@@ -1,32 +1,39 @@
 import React from 'react';
 import "./Output.css";
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 
 
-function Output( {budgetItems }) {
+function Output( { budgetItems }) {
+
+
+
     let totalPrice = 0
-    console.log(`total price: ${totalPrice}`)
     budgetItems.map(item =>{
         const currentPrice = parseInt(item.price) + totalPrice
         totalPrice = currentPrice
-        console.log(totalPrice)
     })
 
 
     return (
         <div className="output">
         {
-            budgetItems.map((budgetItems, index) =>{
+            budgetItems.map((Item, index) =>{
                 return <div className="output__item"
                         key={index}
                         >
-                        <div>{budgetItems.name}</div>
-                        <div>{budgetItems.price}</div>
+                        <div>{Item.name}</div>
+                        <div>{Item.price}</div>
+                        <HighlightOffIcon onClick={deleteItem =>{
+                            console.log(budgetItems)
+                            budgetItems.splice(index, 1)
+                        }}
+                        />
                     </div>
             })
         }
         <div className="output__total">
-            <h1>Total Output: {totalPrice}</h1>
+            <h1>Monthly Spending: {totalPrice}</h1>
 
         </div>
         </div>
