@@ -8,7 +8,7 @@ function Output( {budgetItems }) {
         <div className="output">
         {
             budgetItems.map(budgetItems =>{
-                return <h1>{budgetItems}</h1>
+                return <h1>{budgetItems.name}{budgetItems.price}</h1>
             })
         }
         </div>

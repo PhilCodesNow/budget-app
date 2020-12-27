@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import react, { useState, useRef } from 'react';
 import './App.css';
 import Output from "./Output";
 import Input from "./Input";
@@ -9,8 +9,23 @@ import Header from "./Header";
 
 
 function App() {
+  
+  const budgetItemRef = useRef()
+  const budgetItemPriceRef = useRef()
+  const [budgetItems, setBudgetItems] = useState([])
 
-  const [budgetItems, setBudgetItems] = useState(['house', 'rent', 'gas', 'food'])
+  function handleAddBudgetItem(e) {
+    const name = budgetItemRef.current.value
+    const price = budgetItemPriceRef.current.value
+    if ((name === '') || (price === '')) return
+    setBudgetItems(prevBudgetItems => {
+      return [...prevBudgetItems, {name: name, price: price}]
+    })
+    budgetItemRef.current.value = null
+    budgetItemPriceRef.current.value = null
+  
+  }
+
   return (
     <div className="app">
       <div className="app__header">
@@ -18,8 +33,14 @@ function App() {
       </div>
       
       <div className="app__body">
-        <Input budgetItems={budgetItems}/>
-        <Output budgetItems={budgetItems}/>
+        <Input 
+        budgetItemPriceRef={budgetItemPriceRef} 
+        budgetItemRef={budgetItemRef} 
+        handleAddBudgetItem={handleAddBudgetItem} 
+        />
+        <Output 
+        budgetItems={budgetItems}
+        />
       </div>
     </div>
   );
