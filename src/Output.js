@@ -3,10 +3,14 @@ import "./Output.css";
 
 
 
-function Output() {
+function Output( {budgetItems }) {
     return (
         <div className="output">
-            Output
+        {
+            budgetItems.map(budgetItems =>{
+                return <h1>{budgetItems}</h1>
+            })
+        }
         </div>
     )
 }

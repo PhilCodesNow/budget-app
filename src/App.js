@@ -1,14 +1,16 @@
-
+import react, { useState } from 'react';
 import './App.css';
 import Output from "./Output";
 import Input from "./Input";
 import Header from "./Header";
 
-// from mac
+
 
 
 
 function App() {
+
+  const [budgetItems, setBudgetItems] = useState(['house', 'rent', 'gas', 'food'])
   return (
     <div className="app">
       <div className="app__header">
@@ -16,8 +18,8 @@ function App() {
       </div>
       
       <div className="app__body">
-        <Input />
-        <Output />
+        <Input budgetItems={budgetItems}/>
+        <Output budgetItems={budgetItems}/>
       </div>
     </div>
   );

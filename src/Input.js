@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Input.css";
 
-function Input() {
+function Input({ budgetItems }) {
     return (
         <div className="input">
             <div className="input__header">
