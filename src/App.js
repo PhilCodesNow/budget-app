@@ -4,6 +4,8 @@ import Output from "./Output";
 import Input from "./Input";
 import Header from "./Header";
 
+// from mac
+
 
 
 function App() {
