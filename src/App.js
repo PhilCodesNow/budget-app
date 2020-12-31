@@ -12,7 +12,7 @@ function App() {
   
   const budgetItemRef = useRef()
   const budgetItemPriceRef = useRef()
-  const [budgetItems, setBudgetItems] = useState([{name: 'one', price: 100}, {name: 'two', price: 50}, {name: 'three', price: 20}, {name: 'four', price: 10}, {name: 'five', price: 15}])
+  const [budgetItems, setBudgetItems] = useState([])
 
   function handleAddBudgetItem(e) {
     const name = budgetItemRef.current.value
@@ -27,21 +27,6 @@ function App() {
   
   }
 
-//   const deleteBudgetItem = (i) =>{
-//     console.log(i)
-//     setBudgetItems(prevBudgetItems => {
-//       return [...prevBudgetItems]
-//     })
-// }
-
-// function deleteBudgetItem(i){
-//   console.log(i)
-//   budgetItems.splice(i, 1)
-//   setBudgetItems(prevBudgetItems => {
-    
-//     return [...prevBudgetItems]
-//   })
-// }
 
 
   return (

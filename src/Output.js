@@ -6,12 +6,12 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 function Output({ budgetItems, setBudgetItems }) {
 
-    const [newBudgetItems, setNewBudgetItems] = useState([...budgetItems])
+    let [newBudgetItems, setNewBudgetItems] = useState([...budgetItems])
 
 
     let deleteBudgetItem = (i) =>{
         console.log(i)
-        newBudgetItems.splice(i, 1)
+        budgetItems.splice(i, 1)
         setBudgetItems(prevBudgetItems =>{
             return [...prevBudgetItems]
         })
@@ -27,7 +27,7 @@ function Output({ budgetItems, setBudgetItems }) {
     return (
         <div className="output">
         {
-            newBudgetItems.map((Item, index) =>{
+            budgetItems.map((Item, index) =>{
                 return <div className="output__item"
                         key={index}
                         >
