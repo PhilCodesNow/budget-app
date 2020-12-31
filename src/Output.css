@@ -3,14 +3,35 @@
     padding: 30px;
 }
 .output__item {
+    margin: 8px 0;
+}
+.output__item div {
+    display: inline;
+}
+
+.output__item__delete .MuiSvgIcon-root{
+    display: none;
+}
+.output__item__box {
     min-width: 20vw;
-    border: 3px solid rgb(222, 215, 215);
-    margin: 10px;
-    padding: 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 3px solid rgb(222, 215, 215);
 }
-.output__item > div{
-    display: inline;
+
+.output__item__name {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px;
+}
+.output__item__price {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px;
+}
+.output__item__key > div {
+    padding: 0 10px;
 }

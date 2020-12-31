@@ -5,7 +5,7 @@ function Input({ budgetItemRef, handleAddBudgetItem, budgetItemPriceRef}) {
     return (
         <div className="input">
             <div className="input__header">
-                Input
+                
             </div>
             <div className="input__addBudgetItem">
                 <input ref={budgetItemRef} type='text' placeholder='budget category'/>
