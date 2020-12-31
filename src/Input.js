@@ -1,13 +1,7 @@
 import React, { useRef } from 'react';
 import "./Input.css";
 
-<<<<<<< HEAD
-function Input() {
-
-
-=======
 function Input({ budgetItemRef, handleAddBudgetItem, budgetItemPriceRef}) {
->>>>>>> df441b30355bd885eb3c830debc53cd523da6dab
     return (
         <div className="input">
             <div className="input__header">
