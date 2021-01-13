@@ -9,9 +9,9 @@
     display: inline;
 }
 
-.output__item__delete .MuiSvgIcon-root{
+/* .output__item__delete .MuiSvgIcon-root{
     display: none;
-}
+} */
 .output__item__box {
     min-width: 20vw;
     display: flex;
