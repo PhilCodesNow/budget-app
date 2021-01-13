@@ -1,7 +1,7 @@
 import react, { useState, useRef } from 'react';
 import './App.css';
 import Output from "./Output";
-import Input from "./Input";
+import CategoryList from "./CategoryList";
 import Header from "./Header";
 
 
@@ -36,19 +36,19 @@ function App() {
       <div className="app__header">
         <Header />
       </div>
-      
       <div className="app__body">
-        <Input 
-        budgetItemPriceRef={budgetItemPriceRef} 
-        budgetItemRef={budgetItemRef} 
-        handleAddBudgetItem={handleAddBudgetItem} 
-        budgetCategories={budgetCategories}
-        />
+        <div className="app__categories">
+          <CategoryList 
+            budgetItemPriceRef={budgetItemPriceRef} 
+            budgetItemRef={budgetItemRef} 
+            handleAddBudgetItem={handleAddBudgetItem} 
+            budgetCategories={budgetCategories}/>
+        </div>
         <Output 
-        budgetItems={budgetItems}
-        setBudgetItems={setBudgetItems}
-        budgetCategories={budgetCategories}
-        />
+          budgetItems={budgetItems}
+          setBudgetItems={setBudgetItems}
+          budgetCategories={budgetCategories}
+          />
       </div>
     </div>
   );

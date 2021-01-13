@@ -1,14 +1,20 @@
-import React, { useRef } from 'react';
-import "./Input.css";
+import React from 'react';
+import './Category.css';
 
-function Input({ budgetItemRef, handleAddBudgetItem, budgetItemPriceRef}) {
+function Category(props) {
+    const {
+        CategoryName,
+        budgetItemRef, 
+        handleAddBudgetItem, 
+        budgetItemPriceRef
+    } = props
     return (
         <div className="input">
             <div className="input__header">
-                
+                <h1>{CategoryName}</h1>
             </div>
             <div className="input__addBudgetItem">
-                <input ref={budgetItemRef} type='text' placeholder='budget category'/>
+                <input ref={budgetItemRef} type='text' placeholder='name'/>
                 <input ref={budgetItemPriceRef} type='number' placeholder='money'/>
                 <button onClick={handleAddBudgetItem}>Add Item</button>
             </div>
@@ -16,4 +22,4 @@ function Input({ budgetItemRef, handleAddBudgetItem, budgetItemPriceRef}) {
     )
 }
 
-export default Input
+export default Category
