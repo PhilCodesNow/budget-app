@@ -12,6 +12,7 @@ function App() {
   
   const budgetItemRef = useRef()
   const budgetItemPriceRef = useRef()
+  const newCategoryRef = useRef()
   const [budgetItems, setBudgetItems] = useState([])
 
   const [budgetCategories, setBudgetCategories] = useState(["transportation", "housing", "fun"])
@@ -23,10 +24,17 @@ function App() {
     setBudgetItems(prevBudgetItems => {
       return [...prevBudgetItems, {name: name, price: price}]
     })
-
     budgetItemRef.current.value = null
     budgetItemPriceRef.current.value = null
-  
+  }
+
+  function  handleAddBudgetCategory(newCategory) {
+    const newCategoryName = newCategoryRef.current.value
+    if(newCategoryName === '') return
+    setBudgetCategories(prevBudgetCategories => {
+      return [...prevBudgetCategories, newCategory]
+    })
+    newCategoryRef.current.value = null
   }
 
 
@@ -41,8 +49,11 @@ function App() {
           <CategoryList 
             budgetItemPriceRef={budgetItemPriceRef} 
             budgetItemRef={budgetItemRef} 
+            newCategoryRef={newCategoryRef}
             handleAddBudgetItem={handleAddBudgetItem} 
             budgetCategories={budgetCategories}/>
+            handleAddBudgetCategory={handleAddBudgetCategory}
+            
         </div>
         <Output 
           budgetItems={budgetItems}
