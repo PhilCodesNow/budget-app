@@ -14,6 +14,8 @@ function App() {
   const budgetItemPriceRef = useRef()
   const [budgetItems, setBudgetItems] = useState([])
 
+  const [budgetCategories, setBudgetCategories] = useState(['housing', 'transportation'])
+
   function handleAddBudgetItem(e) {
     const name = budgetItemRef.current.value
     const price = budgetItemPriceRef.current.value
@@ -27,8 +29,11 @@ function App() {
   
   }
 
+
+
   return (
     <div className="app">
+      {/* <button onClick={checkState}>Check State</button> */}
       <div className="app__header">
         <Header />
       </div>
@@ -38,9 +43,12 @@ function App() {
         budgetItemPriceRef={budgetItemPriceRef} 
         budgetItemRef={budgetItemRef} 
         handleAddBudgetItem={handleAddBudgetItem} 
+        budgetCategories={budgetCategories}
         />
         <Output 
         budgetItems={budgetItems}
+        setBudgetItems={setBudgetItems}
+        budgetCategories={budgetCategories}
         />
       </div>
     </div>
