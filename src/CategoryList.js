@@ -1,40 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Category from './Category';
 import "./CategoryList.css";
 
-function Input(props) {
+function CategoryList(props) {
     const {
         budgetItemRef, 
         handleAddBudgetItem, 
         budgetItemPriceRef, 
         budgetCategories
     } = props
+
     return (
         <div>
-            <Category
-                CategoryName="Transportation"
-                budgetItemPriceRef={budgetItemPriceRef} 
-                budgetItemRef={budgetItemRef} 
-                handleAddBudgetItem={handleAddBudgetItem} 
-                budgetCategories={budgetCategories}
-            />
-            <Category
-                CategoryName="Housing"
-                budgetItemPriceRef={budgetItemPriceRef} 
-                budgetItemRef={budgetItemRef} 
-                handleAddBudgetItem={handleAddBudgetItem} 
-                budgetCategories={budgetCategories}
-            />
-            <Category
-                CategoryName="Fun"
-                budgetItemPriceRef={budgetItemPriceRef} 
-                budgetItemRef={budgetItemRef} 
-                handleAddBudgetItem={handleAddBudgetItem} 
-                budgetCategories={budgetCategories}
-            />
-  </div>
+        {
+            budgetCategories.map((budgetItem) => {
+                return (
+                    <Category 
+                        CategoryName={budgetItem}
+                        budgetItemRef={budgetItemRef}
+                        handleAddBudgetItem={handleAddBudgetItem}
+                        budgetItemPriceRef={budgetItemPriceRef}
+                    />
+                )
+            })
+        }
+        </div>
     )
 
 }
 
-export default Input
+export default CategoryList
