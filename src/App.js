@@ -48,7 +48,7 @@ function App() {
     if(category === '') return
    setBudgetCategories(prevCategories => {
     // localStorage.setItem('localStorageBudgetCategories', [...prevCategories, {name: category, items: 'items'}])
-    return [...prevCategories, {id: uuidv4(), name: category}]
+    return [...prevCategories, {id: uuidv4(), name: category, items: ['item 1', 'item 2', 'item 3']}]
     
     })
 

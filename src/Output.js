@@ -35,11 +35,20 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
                                         {
                                 budgetCategories.map((category, index) =>{
                                     return <div key={index}>
-                                                <div>{category.name}</div>
+                                                <div>
+                                                    {category.name}
+                                                    {
+                                                    category.items.map((item, index) => {
+                                                        return <div>
+                                                            {item}
+                                                            </div>
+                                                    })
+                                                    }
+                                                </div>
                                             </div>
                                 })
                             }
-        {
+        {/* {
             budgetItems.map((Item, index) =>{
                 return <div className="output__item">
                             <div className="output__item__box"
@@ -63,7 +72,7 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
 
                         </div>
             })
-        }
+        } */}
             <div className="output__total">
                 {/* <h1>Monthly Spending: {totalPrice}</h1> */}
 
