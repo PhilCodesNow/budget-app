@@ -35,7 +35,7 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
                                         {
                                 budgetCategories.map((category, index) =>{
                                     return <div key={index}>
-                                                <div>{category}</div>
+                                                <div>{category.name}</div>
                                             </div>
                                 })
                             }

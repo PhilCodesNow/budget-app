@@ -3,6 +3,8 @@ import './App.css';
 import Output from "./Output";
 import CategoryList from "./CategoryList";
 import Header from "./Header";
+import { v4 as uuidv4 } from 'uuid';
+
 
 const LOCAL_STORAGE_KEY = 'budgetApp.categories'
 
@@ -26,6 +28,9 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(budgetCategories))
   }, [budgetCategories])
 
+  useEffect(() =>{
+    console.log(budgetCategories)
+  },[budgetCategories])
 
   function handleAddBudgetItem(e) {
     const name = budgetItemRef.current.value
@@ -42,8 +47,9 @@ function App() {
     const category = newCategoryRef.current.value
     if(category === '') return
    setBudgetCategories(prevCategories => {
-    localStorage.setItem('localStorageBudgetCategories', [...prevCategories, category])
-    return [...prevCategories, category]
+    // localStorage.setItem('localStorageBudgetCategories', [...prevCategories, {name: category, items: 'items'}])
+    return [...prevCategories, {id: uuidv4(), name: category}]
+    
     })
 
     newCategoryRef.current.value = null
