@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./Output.css";
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
@@ -17,11 +17,11 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
         })
     }
 
-    let totalPrice = 0
-    budgetItems.map(item =>{
-        const currentPrice = parseInt(item.price) + totalPrice
-        totalPrice = currentPrice
-    })
+    // let totalPrice = 0
+    // budgetItems.map(item =>{
+    //     const currentPrice = parseInt(item.price) + totalPrice
+    //     totalPrice = currentPrice
+    // })
 
     // function makeHoverClass(e){
     //     document.getElementsByClassName('output__item__delete > MuiSvgIcon-root').style.display = 'block';
@@ -65,7 +65,7 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
             })
         }
             <div className="output__total">
-                <h1>Monthly Spending: {totalPrice}</h1>
+                {/* <h1>Monthly Spending: {totalPrice}</h1> */}
 
             </div>
         </div>

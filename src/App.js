@@ -1,4 +1,4 @@
-import react, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import './App.css';
 import Output from "./Output";
 import CategoryList from "./CategoryList";
@@ -12,10 +12,13 @@ function App() {
   
   const budgetItemRef = useRef()
   const budgetItemPriceRef = useRef()
-  const newCategoryRef = useRef()
   const [budgetItems, setBudgetItems] = useState([])
+  
+  const newCategoryRef = useRef()
+  const [budgetCategories, setBudgetCategories] = useState(['houseing','transportation'])
 
-  const [budgetCategories, setBudgetCategories] = useState(["transportation", "housing", "fun"])
+
+
 
   function handleAddBudgetItem(e) {
     const name = budgetItemRef.current.value
@@ -28,15 +31,22 @@ function App() {
     budgetItemPriceRef.current.value = null
   }
 
-  function  handleAddBudgetCategory(newCategory) {
-    const newCategoryName = newCategoryRef.current.value
-    if(newCategoryName === '') return
-    setBudgetCategories(prevBudgetCategories => {
-      return [...prevBudgetCategories, newCategory]
+  function handleAddBudgetCategory() {
+    const category = newCategoryRef.current.value
+    if(category === '') return
+   setBudgetCategories(prevCategories => {
+      return [...prevCategories, category]
     })
     newCategoryRef.current.value = null
   }
 
+
+  // function  handleAddBudgetCategory(newCategory) {
+  //   const newCategoryName = newCategory
+  //   setBudgetCategories(prevBudgetCategories => {
+  //     return [...prevBudgetCategories, newCategoryName]
+  //   })
+  // }
 
 
   return (
@@ -51,8 +61,10 @@ function App() {
             budgetItemRef={budgetItemRef} 
             newCategoryRef={newCategoryRef}
             handleAddBudgetItem={handleAddBudgetItem} 
-            budgetCategories={budgetCategories}/>
+            budgetCategories={budgetCategories}
             handleAddBudgetCategory={handleAddBudgetCategory}
+            setBudgetCategories={setBudgetCategories}
+          />
             
         </div>
         <Output 

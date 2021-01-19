@@ -7,16 +7,15 @@ function CategoryListAdd(props) {
         newCategoryRef
     } = props
     
+    
+
 
     return (
         <div>
-            <form>
-                <label name="New Category" htmlFor="newCategory">New Category: </label>
-                <input type="text" name="newCategory" onInput={e => {
-                    newCategoryRef = e.target.value
-            }}/>
-                <button>Add Category</button>
-            </form>
+            <div>
+                <input ref={newCategoryRef} type='text' placeholder='category'/>
+                <button onClick={handleAddBudgetCategory}>Add Category</button>
+            </div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Category from './Category';
 import "./CategoryList.css";
 import CategoryListAdd from './CategoryListAdd';
@@ -11,7 +11,7 @@ function CategoryList(props) {
         budgetItemPriceRef, 
         budgetCategories,
         handleAddBudgetCategory,
-        newCategoryName
+        setBudgetCategories
     } = props
 
     return (
@@ -19,6 +19,8 @@ function CategoryList(props) {
             <CategoryListAdd
                 handleAddBudgetCategory={handleAddBudgetCategory}
                 newCategoryRef={newCategoryRef}
+                budgetCategories={budgetCategories}
+                setBudgetCategories={setBudgetCategories}
             />
         {
             budgetCategories.map((budgetItem) => {
