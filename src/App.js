@@ -1,10 +1,10 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './App.css';
 import Output from "./Output";
 import CategoryList from "./CategoryList";
 import Header from "./Header";
 
-
+const LOCAL_STORAGE_KEY = 'budgetApp.categories'
 
 
 
@@ -15,9 +15,16 @@ function App() {
   const [budgetItems, setBudgetItems] = useState([])
   
   const newCategoryRef = useRef()
-  const [budgetCategories, setBudgetCategories] = useState(['houseing','transportation'])
+  const [budgetCategories, setBudgetCategories] = useState([])
 
+  useEffect(() => {
+    const categoryJSON = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if(categoryJSON != null) setBudgetCategories(JSON.parse(categoryJSON))
+  }, [])
 
+  useEffect(() =>{
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(budgetCategories))
+  }, [budgetCategories])
 
 
   function handleAddBudgetItem(e) {
@@ -35,18 +42,14 @@ function App() {
     const category = newCategoryRef.current.value
     if(category === '') return
    setBudgetCategories(prevCategories => {
-      return [...prevCategories, category]
+    localStorage.setItem('localStorageBudgetCategories', [...prevCategories, category])
+    return [...prevCategories, category]
     })
+
     newCategoryRef.current.value = null
   }
 
 
-  // function  handleAddBudgetCategory(newCategory) {
-  //   const newCategoryName = newCategory
-  //   setBudgetCategories(prevBudgetCategories => {
-  //     return [...prevBudgetCategories, newCategoryName]
-  //   })
-  // }
 
 
   return (
