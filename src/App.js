@@ -34,12 +34,12 @@ function App() {
 
   function handleAddBudgetItem(categoryId, categoryName, categoryItems) {
     console.log('hit here 1')
+    const budgetCategoriesIndex = budgetCategories.findIndex(category => category.id === categoryId)
+    console.log(`index ${budgetCategoriesIndex}`)
     const itemName = budgetItemRef.current.value
     const itemPrice = budgetItemPriceRef.current.value
     if ((itemName === '') || (itemPrice === '')) return
     console.log('hit here 2')
-    const budgetCategoriesIndex = budgetCategories.findIndex(category => category.id === categoryId)
-    console.log(`index${budgetCategoriesIndex}`)
     let newArray = budgetCategories
     newArray[budgetCategoriesIndex] = {id: categoryId, name: categoryName, items: [{itemName: itemName, itemPrice: itemPrice}]}
     console.log('hit here 3')
