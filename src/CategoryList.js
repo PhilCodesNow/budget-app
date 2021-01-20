@@ -28,7 +28,7 @@ function CategoryList(props) {
                 return (
                     <Category 
                         key={uuidv4()}
-                        CategoryName={budgetItem}
+                        Category={budgetItem}
                         budgetItemRef={budgetItemRef}
                         handleAddBudgetItem={handleAddBudgetItem}
                         budgetItemPriceRef={budgetItemPriceRef}

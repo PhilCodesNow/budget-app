@@ -32,12 +32,19 @@ function App() {
     console.log(budgetCategories)
   },[budgetCategories])
 
-  function handleAddBudgetItem(e) {
-    const name = budgetItemRef.current.value
-    const price = budgetItemPriceRef.current.value
-    if ((name === '') || (price === '')) return
-    setBudgetItems(prevBudgetItems => {
-      return [...prevBudgetItems, {name: name, price: price}]
+  function handleAddBudgetItem(categoryId, categoryName, categoryItems) {
+    console.log('hit here 1')
+    const itemName = budgetItemRef.current.value
+    const itemPrice = budgetItemPriceRef.current.value
+    if ((itemName === '') || (itemPrice === '')) return
+    console.log('hit here 2')
+    const budgetCategoriesIndex = budgetCategories.findIndex(category => category.id === categoryId)
+    console.log(`index${budgetCategoriesIndex}`)
+    let newArray = budgetCategories
+    newArray[budgetCategoriesIndex] = {id: categoryId, name: categoryName, items: [{itemName: itemName, itemPrice: itemPrice}]}
+    console.log('hit here 3')
+    setBudgetCategories(prevBudgetCategories => {
+      return [...newArray]
     })
     budgetItemRef.current.value = null
     budgetItemPriceRef.current.value = null
@@ -48,7 +55,7 @@ function App() {
     if(category === '') return
    setBudgetCategories(prevCategories => {
     // localStorage.setItem('localStorageBudgetCategories', [...prevCategories, {name: category, items: 'items'}])
-    return [...prevCategories, {id: uuidv4(), name: category, items: ['item 1', 'item 2', 'item 3']}]
+    return [...prevCategories, {id: uuidv4(), name: category, items: []}]
     
     })
 

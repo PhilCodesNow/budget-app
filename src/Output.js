@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Output.css";
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+// import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 
 
@@ -9,13 +9,13 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
     // let [newBudgetItems, setNewBudgetItems] = useState([...budgetItems])
 
 
-    let deleteBudgetItem = (i) =>{
-        console.log(i)
-        budgetItems.splice(i, 1)
-        setBudgetItems(prevBudgetItems =>{
-            return [...prevBudgetItems]
-        })
-    }
+    // let deleteBudgetItem = (i) =>{
+    //     console.log(i)
+    //     budgetItems.splice(i, 1)
+    //     setBudgetItems(prevBudgetItems =>{
+    //         return [...prevBudgetItems]
+    //     })
+    // }
 
     // let totalPrice = 0
     // budgetItems.map(item =>{
@@ -39,8 +39,9 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
                                                     {category.name}
                                                     {
                                                     category.items.map((item, index) => {
-                                                        return <div>
-                                                            {item}
+                                                        return <div key={index}>
+                                                            {item.itemName}: 
+                                                            {item.price}
                                                             </div>
                                                     })
                                                     }
