@@ -36,10 +36,9 @@ function App() {
     console.log('changed')
   }
   function handleNewItemSubmit(id){
-    let arrayIndex = budgetCategories.find(budgetCategory => budgetCategory.id === id)
+    let arrayIndex = budgetCategories.findIndex(budgetCategory => budgetCategory.id === id)
     let newArray = budgetCategories
-    console.log(newArray)
-    newArray[0].items[0].name = 'item 2'
+    newArray[arrayIndex].items[0].name = 'item 2'
     setBudgetCategories([...newArray])
   }
 
