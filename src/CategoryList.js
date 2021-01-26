@@ -2,7 +2,6 @@ import React from 'react';
 import Category from './Category';
 import "./CategoryList.css";
 import CategoryListAdd from './CategoryListAdd';
-import { v4 as uuidv4 } from 'uuid';
 
 function CategoryList(props) {
     const {
@@ -12,7 +11,9 @@ function CategoryList(props) {
         budgetItemPriceRef, 
         budgetCategories,
         handleAddBudgetCategory,
-        setBudgetCategories
+        setBudgetCategories,
+        handleItemInputChange,
+        handleNewItemSubmit
     } = props
 
     return (
@@ -27,11 +28,14 @@ function CategoryList(props) {
             budgetCategories.map((budgetItem) => {
                 return (
                     <Category 
-                        key={uuidv4()}
+                        id={budgetItem.id}
+                        key={budgetItem.id}
                         Category={budgetItem}
                         budgetItemRef={budgetItemRef}
                         handleAddBudgetItem={handleAddBudgetItem}
                         budgetItemPriceRef={budgetItemPriceRef}
+                        handleItemInputChange={handleItemInputChange}
+                        handleNewItemSubmit={handleNewItemSubmit}
                     />
                 )
             })
