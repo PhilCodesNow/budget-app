@@ -7,9 +7,6 @@ function Category(props) {
         id,
         handleItemNameInputChange,
         handleItemPriceInputChange,
-        budgetItemRef, 
-        handleAddBudgetItem, 
-        budgetItemPriceRef,
         handleNewItemSubmit
     } = props
 

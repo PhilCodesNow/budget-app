@@ -32,9 +32,6 @@ function CategoryList(props) {
                         id={budgetItem.id}
                         key={budgetItem.id}
                         Category={budgetItem}
-                        budgetItemRef={budgetItemRef}
-                        handleAddBudgetItem={handleAddBudgetItem}
-                        budgetItemPriceRef={budgetItemPriceRef}
                         handleItemNameInputChange={handleItemNameInputChange}
                         handleItemPriceInputChange={handleItemPriceInputChange}
                         handleNewItemSubmit={handleNewItemSubmit}
