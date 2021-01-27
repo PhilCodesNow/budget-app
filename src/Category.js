@@ -28,13 +28,8 @@ function Category(props) {
                 type="text" 
                 placeholder="Budget Item"
                 name="budgetItem"
+                onChange={handleItemInputChange}
                 />
-                {/* <input
-                type="text"
-                placeholder="Price"
-                name="budgetItemPrice"
-                onChange={}
-                /> */}
                 <button onClick={() => handleNewItemSubmit(id)}>Add Item</button>
             </form>
         </div>

@@ -15,6 +15,7 @@ function App() {
   const budgetItemRef = useRef()
   const budgetItemPriceRef = useRef()
   const [budgetItems, setBudgetItems] = useState([])
+  const [currentValue, setCurrentValue] = useState([])
 
   const newCategoryRef = useRef()
   const [budgetCategories, setBudgetCategories] = useState([])
@@ -32,13 +33,15 @@ function App() {
     console.log(budgetCategories)
   },[budgetCategories])
 
-  function handleItemInputChange(ID) {
-    console.log('changed')
+  function handleItemInputChange(e) {
+    setCurrentValue(e.target.value)
+    console.log(currentValue)
   }
   function handleNewItemSubmit(id){
     let arrayIndex = budgetCategories.findIndex(budgetCategory => budgetCategory.id === id)
     let newArray = budgetCategories
-    newArray[arrayIndex].items[0].name = 'item 2'
+    newArray[arrayIndex].items[0].name = currentValue
+    // newArray[arrayIndex].items[...prevItems, 'item this']
     setBudgetCategories([...newArray])
   }
 
@@ -66,7 +69,7 @@ function App() {
     if(category === '') return
    setBudgetCategories(prevCategories => {
     // localStorage.setItem('localStorageBudgetCategories', [...prevCategories, {name: category, items: 'items'}])
-    return [...prevCategories, {id: uuidv4(), name: category, items: [{name: 'item 1', price: 10}]}]
+    return [...prevCategories, {id: uuidv4(), name: category, items: [{name: 'item 1'}]}]
     
     })
 

@@ -40,8 +40,8 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
                                                     {
                                                     category.items.map((item, index) => {
                                                         return <div key={index}>
-                                                            {item.name}: 
-                                                            {item.price}
+                                                            {item.name}
+                                                            
                                                             </div>
                                                     })
                                                     }
