@@ -15,7 +15,8 @@ function App() {
   const budgetItemRef = useRef()
   const budgetItemPriceRef = useRef()
   const [budgetItems, setBudgetItems] = useState([])
-  const [currentValue, setCurrentValue] = useState([])
+  const [currentItemNameValue, setCurrentItemNameValue] = useState([])
+  const [currentItemPriceValue, setCurrentItemPriceValue] = useState([])
 
   const newCategoryRef = useRef()
   const [budgetCategories, setBudgetCategories] = useState([])
@@ -33,15 +34,21 @@ function App() {
     console.log(budgetCategories)
   },[budgetCategories])
 
-  function handleItemInputChange(e) {
-    setCurrentValue(e.target.value)
-    console.log(currentValue)
+  function handleItemNameInputChange(e) {
+    setCurrentItemNameValue(e.target.value)
+    console.log(`name: ${currentItemNameValue}`)
   }
+
+  function handleItemPriceInputChange(e) {
+    setCurrentItemPriceValue(e.target.value)
+    console.log(`price: ${currentItemPriceValue}`)
+  }
+
   function handleNewItemSubmit(id){
     let arrayIndex = budgetCategories.findIndex(budgetCategory => budgetCategory.id === id)
     let newArray = budgetCategories
     let oldItems = newArray[arrayIndex].items
-    newArray[arrayIndex].items = [...oldItems, {name: currentValue}]
+    newArray[arrayIndex].items = [...oldItems, {name: currentItemNameValue, price: currentItemPriceValue}]
     // newArray[arrayIndex].items[...prevItems, 'item this']
     setBudgetCategories([...newArray])
   }
@@ -70,7 +77,7 @@ function App() {
     if(category === '') return
    setBudgetCategories(prevCategories => {
     // localStorage.setItem('localStorageBudgetCategories', [...prevCategories, {name: category, items: 'items'}])
-    return [...prevCategories, {id: uuidv4(), name: category, items: [{name: 'item 1'}]}]
+    return [...prevCategories, {id: uuidv4(), name: category, items: []}]
     
     })
 
@@ -95,7 +102,8 @@ function App() {
             budgetCategories={budgetCategories}
             handleAddBudgetCategory={handleAddBudgetCategory}
             setBudgetCategories={setBudgetCategories}
-            handleItemInputChange={handleItemInputChange}
+            handleItemNameInputChange={handleItemNameInputChange}
+            handleItemPriceInputChange={handleItemPriceInputChange}
             handleNewItemSubmit={handleNewItemSubmit}
           />
             

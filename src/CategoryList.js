@@ -12,7 +12,8 @@ function CategoryList(props) {
         budgetCategories,
         handleAddBudgetCategory,
         setBudgetCategories,
-        handleItemInputChange,
+        handleItemNameInputChange,
+        handleItemPriceInputChange,
         handleNewItemSubmit
     } = props
 
@@ -34,7 +35,8 @@ function CategoryList(props) {
                         budgetItemRef={budgetItemRef}
                         handleAddBudgetItem={handleAddBudgetItem}
                         budgetItemPriceRef={budgetItemPriceRef}
-                        handleItemInputChange={handleItemInputChange}
+                        handleItemNameInputChange={handleItemNameInputChange}
+                        handleItemPriceInputChange={handleItemPriceInputChange}
                         handleNewItemSubmit={handleNewItemSubmit}
                     />
                 )

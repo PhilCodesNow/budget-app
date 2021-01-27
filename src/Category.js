@@ -5,7 +5,8 @@ function Category(props) {
     const {
         Category,
         id,
-        handleItemInputChange,
+        handleItemNameInputChange,
+        handleItemPriceInputChange,
         budgetItemRef, 
         handleAddBudgetItem, 
         budgetItemPriceRef,
@@ -27,8 +28,14 @@ function Category(props) {
                 <input 
                 type="text" 
                 placeholder="Budget Item"
-                name="budgetItem"
-                onChange={handleItemInputChange}
+                name="budgetItemName"
+                onChange={handleItemNameInputChange}
+                />
+                <input 
+                type="text" 
+                placeholder="Price"
+                name="budgetItemPrice"
+                onChange={handleItemPriceInputChange}
                 />
                 <button onClick={() => handleNewItemSubmit(id)}>Add Item</button>
             </form>
