@@ -15,7 +15,9 @@ function App() {
   const budgetItemRef = useRef()
   const budgetItemPriceRef = useRef()
   const [budgetItems, setBudgetItems] = useState([])
-  
+  const [currentItemNameValue, setCurrentItemNameValue] = useState([])
+  const [currentItemPriceValue, setCurrentItemPriceValue] = useState([])
+
   const newCategoryRef = useRef()
   const [budgetCategories, setBudgetCategories] = useState([])
 
@@ -32,23 +34,43 @@ function App() {
     console.log(budgetCategories)
   },[budgetCategories])
 
-  function handleAddBudgetItem(categoryId, categoryName, categoryItems) {
-    console.log('hit here 1')
-    const budgetCategoriesIndex = budgetCategories.findIndex(category => category.id === categoryId)
-    console.log(`index ${budgetCategoriesIndex}`)
-    const itemName = budgetItemRef.current.value
-    const itemPrice = budgetItemPriceRef.current.value
-    if ((itemName === '') || (itemPrice === '')) return
-    console.log('hit here 2')
-    let newArray = budgetCategories
-    newArray[budgetCategoriesIndex] = {id: categoryId, name: categoryName, items: [{itemName: itemName, itemPrice: itemPrice}]}
-    console.log('hit here 3')
-    setBudgetCategories(prevBudgetCategories => {
-      return [...newArray]
-    })
-    budgetItemRef.current.value = null
-    budgetItemPriceRef.current.value = null
+  function handleItemNameInputChange(e) {
+    setCurrentItemNameValue(e.target.value)
+    console.log(`name: ${currentItemNameValue}`)
   }
+
+  function handleItemPriceInputChange(e) {
+    setCurrentItemPriceValue(e.target.value)
+    console.log(`price: ${currentItemPriceValue}`)
+  }
+
+  function handleNewItemSubmit(id){
+    let arrayIndex = budgetCategories.findIndex(budgetCategory => budgetCategory.id === id)
+    let newArray = budgetCategories
+    let oldItems = newArray[arrayIndex].items
+    newArray[arrayIndex].items = [...oldItems, {name: currentItemNameValue, price: currentItemPriceValue}]
+    // newArray[arrayIndex].items[...prevItems, 'item this']
+    setBudgetCategories([...newArray])
+  }
+
+
+  // function handleAddBudgetItem(categoryId, categoryName, categoryItems) {
+  //   console.log('hit here 1')
+  //   const budgetCategoriesIndex = budgetCategories.findIndex(category => category.id === categoryId)
+  //   console.log(`index ${budgetCategoriesIndex}`)
+  //   const itemName = budgetItemRef.current.value
+  //   const itemPrice = budgetItemPriceRef.current.value
+  //   if ((itemName === '') || (itemPrice === '')) return
+  //   console.log('hit here 2')
+  //   let newArray = budgetCategories
+  //   newArray[budgetCategoriesIndex] = {id: categoryId, name: categoryName, items: [{itemName: itemName, itemPrice: itemPrice}]}
+  //   console.log('hit here 3')
+  //   setBudgetCategories(prevBudgetCategories => {
+  //     return [...newArray]
+  //   })
+  //   budgetItemRef.current.value = null
+  //   budgetItemPriceRef.current.value = null
+  // }
 
   function handleAddBudgetCategory() {
     const category = newCategoryRef.current.value
@@ -76,10 +98,13 @@ function App() {
             budgetItemPriceRef={budgetItemPriceRef} 
             budgetItemRef={budgetItemRef} 
             newCategoryRef={newCategoryRef}
-            handleAddBudgetItem={handleAddBudgetItem} 
+            // handleAddBudgetItem={handleAddBudgetItem} 
             budgetCategories={budgetCategories}
             handleAddBudgetCategory={handleAddBudgetCategory}
             setBudgetCategories={setBudgetCategories}
+            handleItemNameInputChange={handleItemNameInputChange}
+            handleItemPriceInputChange={handleItemPriceInputChange}
+            handleNewItemSubmit={handleNewItemSubmit}
           />
             
         </div>
