@@ -5,10 +5,7 @@ import CategoryListAdd from './CategoryListAdd';
 
 function CategoryList(props) {
     const {
-        budgetItemRef, 
-        handleAddBudgetItem, 
         newCategoryRef,
-        budgetItemPriceRef, 
         budgetCategories,
         handleAddBudgetCategory,
         setBudgetCategories,
