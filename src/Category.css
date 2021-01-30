@@ -1,0 +1,21 @@
+.category {
+    background-color:  #A3BCB6;
+    margin: 1em 0;
+    padding: .3em;
+    border-radius: 20px;
+}
+.category__header{
+    text-align: center;
+    margin-bottom: .5em;
+}
+.category form input{
+    display: block;
+    border-radius: 10em;
+    padding: .2em;
+    margin: 0 1em;
+}
+.category__input{
+    margin: 0 1em;
+    display: flex;
+    justify-content: space-between;
+}

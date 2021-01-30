@@ -1,0 +1,21 @@
+.outputCategory{
+    background-color: #A3BCB6;
+    border-radius: 20px;
+    padding: .3em;
+    margin: .5em 0;
+}
+.outputCategory h1{
+    text-align: center;
+}
+.outputCategory__flex{
+    display: flex;
+    justify-content: space-between;
+}
+.outputCategory__flex:nth-child(odd) {
+    background-color:  #80a8a0;
+}
+.outputCategory__flex__left{
+    min-width: 80%;
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,4 +1,8 @@
-.input {
+
+.categoryList {
+    border-radius: 20px;
     background-color: rgb(153, 145, 145);
-    padding: 30px;
+    padding: 20px;
+    margin: 1em;
+    min-width: 50%;
 }

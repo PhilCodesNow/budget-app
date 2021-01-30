@@ -1,7 +1,15 @@
+/* #A3BCB6
+#39603D
+#3C403D
+#DADED4
+#FFFFFF */
 * {
   margin: 0;
   padding: 0;
   font-size: 1.5rem;
+}
+.app {
+  background-color: #DADED4;
 }
 .app__categories {
   display: flex;
@@ -9,5 +17,9 @@
 }
 .app__body{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.app__addCategory {
+  display: flex;
+  justify-content: center;
 }

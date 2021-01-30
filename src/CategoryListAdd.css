@@ -1,0 +1,19 @@
+*:focus{
+    outline: none;
+}
+.categoryListAdd {
+    margin-top: 1em;
+}
+.categoryListAdd input[type=text]{
+    border-radius: 10em;
+    padding: .2em;
+    margin: 0 1em;
+}
+.categoryListAdd button {
+    border-radius: 10em;
+    padding: .2em;
+    margin: 0 1em;
+}
+.categoryListAdd button:hover{
+    cursor: pointer;
+}

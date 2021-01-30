@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Output.css";
-// import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import OutputCategory from './OutputCategory';
 
 
 
@@ -32,23 +32,14 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
 
     return (
         <div className="output">
-                                        {
-                                budgetCategories.map((category, index) =>{
-                                    return <div key={index}>
-                                                <div>
-                                                    {category.name}
-                                                    {
-                                                    category.items.map((item, index) => {
-                                                        return <div key={index}>
-                                                            {item.name}
-                                                            {item.price}
-                                                            </div>
-                                                    })
-                                                    }
-                                                </div>
-                                            </div>
-                                })
-                            }
+    {
+        budgetCategories.map((category, index) =>{
+            return <OutputCategory
+                    key={index}
+                    category={category}
+                    />
+        })
+    }
         {/* {
             budgetItems.map((Item, index) =>{
                 return <div className="output__item">
