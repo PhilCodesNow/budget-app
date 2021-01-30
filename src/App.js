@@ -3,7 +3,9 @@ import './App.css';
 import Output from "./Output";
 import CategoryList from "./CategoryList";
 import Header from "./Header";
+import CategoryListAdd from "./CategoryListAdd";
 import { v4 as uuidv4 } from 'uuid';
+
 
 
 const LOCAL_STORAGE_KEY = 'budgetApp.categories'
@@ -91,6 +93,14 @@ function App() {
     <div className="app">
       <div className="app__header">
         <Header />
+      </div>
+      <div className="app__addCategory">
+      <CategoryListAdd
+      handleAddBudgetCategory={handleAddBudgetCategory}
+      newCategoryRef={newCategoryRef}
+      budgetCategories={budgetCategories}
+      setBudgetCategories={setBudgetCategories}
+      />
       </div>
       <div className="app__body">
         <div className="app__categories">

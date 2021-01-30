@@ -1,5 +1,8 @@
 import React from 'react';
 import './Category.css';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/HighlightOff';
+
 
 function Category(props) {
     const {
@@ -12,9 +15,18 @@ function Category(props) {
 
 
     return (
-        <div className="input">
-            <div className="input__header">
-                <h1>{Category.name}</h1>
+        <div className="category">
+            <DeleteIcon></DeleteIcon>
+            <div className="category__header">
+                <h3>{Category.name}</h3>
+            </div>
+            
+            <div className="category__input">
+                <h1>Add Item</h1>
+                <div>
+                
+                <AddIcon onClick={() => handleNewItemSubmit(id)}>Add Item</AddIcon>
+                </div>
             </div>
             {/* <div className="input__addBudgetItem">
                 <input ref={budgetItemRef} type='text' placeholder='name'/>
@@ -34,7 +46,7 @@ function Category(props) {
                 name="budgetItemPrice"
                 onChange={handleItemPriceInputChange}
                 />
-                <button onClick={() => handleNewItemSubmit(id)}>Add Item</button>
+
             </form>
         </div>
     )

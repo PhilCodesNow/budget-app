@@ -12,11 +12,9 @@ function CategoryListAdd(props) {
     
 
     return (
-        <div>
-            <div>
+        <div className="categoryListAdd">
                 <input ref={newCategoryRef} type='text' placeholder='category'/>
                 <button onClick={handleAddBudgetCategory}>Add Category</button>
-            </div>
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import "./Output.css";
-// import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 
 

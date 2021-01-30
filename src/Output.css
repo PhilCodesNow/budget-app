@@ -1,6 +1,9 @@
 .output {
     background-color: rgb(143, 133, 133);
     padding: 30px;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 1em;
 }
 .output__item {
     margin: 8px 0;
