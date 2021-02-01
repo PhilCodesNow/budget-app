@@ -1,0 +1,32 @@
+/* #A3BCB6
+#39603D
+#3C403D
+#DADED4
+#FFFFFF */
+.outputCategory {
+    background-color: #DADED4;
+    padding: .5em;
+    margin: .5em;
+    border-radius: 20px;
+}
+.outputCategory h3{
+    text-align: center;
+    margin-top: .3em;
+}
+.outputCategory__flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.outputCategory__flex:nth-child(odd){
+    background-color: rgb(153, 145, 145);
+}
+.outputCategory__flex__button{
+    margin: auto 0;
+    padding: 0;
+}
+.outputCategory__flex__info{
+    display: flex;
+    justify-content: space-between;
+    min-width: 80%;
+}

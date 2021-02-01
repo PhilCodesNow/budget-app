@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Output.css";
+import OutputCategory from './OutputCategory';
 
 
 
@@ -33,19 +34,10 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
         <div className="output">
                                         {
                                 budgetCategories.map((category, index) =>{
-                                    return <div key={index}>
-                                                <div>
-                                                    {category.name}
-                                                    {
-                                                    category.items.map((item, index) => {
-                                                        return <div key={index}>
-                                                            {item.name}
-                                                            {item.price}
-                                                            </div>
-                                                    })
-                                                    }
-                                                </div>
-                                            </div>
+                                    return <OutputCategory 
+                                            key={index}
+                                            category={category}
+                                            />
                                 })
                             }
         {/* {
