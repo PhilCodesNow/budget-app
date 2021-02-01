@@ -1,9 +1,17 @@
+/* #A3BCB6
+#39603D
+#3C403D
+#DADED4
+#FFFFFF */
+
+
 .output {
-    background-color: rgb(143, 133, 133);
+    background-color: rgb(153, 145, 145);
     padding: 30px;
     border-radius: 20px;
     padding: 20px;
     margin: 1em;
+    min-width: 30%;
 }
 .output__item {
     margin: 8px 0;
