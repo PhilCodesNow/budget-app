@@ -32,14 +32,14 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
 
     return (
         <div className="output">
-                                        {
-                                budgetCategories.map((category, index) =>{
-                                    return <OutputCategory 
-                                            key={index}
-                                            category={category}
-                                            />
-                                })
-                            }
+    {
+        budgetCategories.map((category, index) =>{
+            return <OutputCategory
+                    key={index}
+                    category={category}
+                    />
+        })
+    }
         {/* {
             budgetItems.map((Item, index) =>{
                 return <div className="output__item">
