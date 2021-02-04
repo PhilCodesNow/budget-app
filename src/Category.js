@@ -10,13 +10,15 @@ function Category(props) {
         id,
         handleItemNameInputChange,
         handleItemPriceInputChange,
-        handleNewItemSubmit
+        handleNewItemSubmit,
+        handleDeleteBudgetCategory
     } = props
 
 
     return (
         <div className="category">
-            <DeleteIcon></DeleteIcon>
+            <DeleteIcon
+            onClick={() =>{handleDeleteBudgetCategory(id)}}></DeleteIcon>
             <div className="category__header">
                 <h3>{Category.name}</h3>
             </div>

@@ -86,6 +86,13 @@ function App() {
     newCategoryRef.current.value = null
   }
 
+  function handleDeleteBudgetCategory(id){
+    const newArray = [...budgetCategories]
+    const index = newArray.findIndex(category => category.id === id)
+    newArray.splice(index, 1)
+    setBudgetCategories(newArray)
+    console.log(newArray)
+  }
 
 
 
@@ -115,6 +122,7 @@ function App() {
             handleItemNameInputChange={handleItemNameInputChange}
             handleItemPriceInputChange={handleItemPriceInputChange}
             handleNewItemSubmit={handleNewItemSubmit}
+            handleDeleteBudgetCategory={handleDeleteBudgetCategory}
           />
             
         </div>
