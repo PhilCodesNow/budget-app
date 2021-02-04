@@ -4,8 +4,13 @@ import OutputCategory from './OutputCategory';
 
 
 
-function Output({ budgetItems, setBudgetItems, budgetCategories }) {
-
+function Output(props) {
+    const {
+        budgetItems, 
+        setBudgetItems,
+        budgetCategories,
+        handleDeleteCategoryItem
+    } = props
     // let [newBudgetItems, setNewBudgetItems] = useState([...budgetItems])
 
 
@@ -37,6 +42,7 @@ function Output({ budgetItems, setBudgetItems, budgetCategories }) {
             return <OutputCategory
                     key={index}
                     category={category}
+                    handleDeleteCategoryItem={handleDeleteCategoryItem}
                     />
         })
     }

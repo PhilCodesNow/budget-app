@@ -55,6 +55,13 @@ function App() {
     setBudgetCategories([...newArray])
   }
 
+  function handleDeleteCategoryItem(categoryId, itemIndex){
+    let newArray = [...budgetCategories]
+    let catIndex = newArray.findIndex(category => category.id === categoryId)
+    newArray[catIndex].items.splice(itemIndex, 1)
+    console.log(newArray)
+    setBudgetCategories(newArray)
+  }
 
   // function handleAddBudgetItem(categoryId, categoryName, categoryItems) {
   //   console.log('hit here 1')
@@ -130,6 +137,7 @@ function App() {
           budgetItems={budgetItems}
           setBudgetItems={setBudgetItems}
           budgetCategories={budgetCategories}
+          handleDeleteCategoryItem={handleDeleteCategoryItem}
           />
       </div>
     </div>
