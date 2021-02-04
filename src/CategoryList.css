@@ -10,4 +10,5 @@
     background-color: rgb(153, 145, 145);
     padding: 20px;
     margin: 1em;
+    min-width: 50%;
 }

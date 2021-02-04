@@ -55,6 +55,13 @@ function App() {
     setBudgetCategories([...newArray])
   }
 
+  function handleDeleteCategoryItem(categoryId, itemIndex){
+    let newArray = [...budgetCategories]
+    let catIndex = newArray.findIndex(category => category.id === categoryId)
+    newArray[catIndex].items.splice(itemIndex, 1)
+    console.log(newArray)
+    setBudgetCategories(newArray)
+  }
 
   // function handleAddBudgetItem(categoryId, categoryName, categoryItems) {
   //   console.log('hit here 1')
@@ -86,6 +93,13 @@ function App() {
     newCategoryRef.current.value = null
   }
 
+  function handleDeleteBudgetCategory(id){
+    const newArray = [...budgetCategories]
+    const index = newArray.findIndex(category => category.id === id)
+    newArray.splice(index, 1)
+    setBudgetCategories(newArray)
+    console.log(newArray)
+  }
 
 
 
@@ -115,6 +129,7 @@ function App() {
             handleItemNameInputChange={handleItemNameInputChange}
             handleItemPriceInputChange={handleItemPriceInputChange}
             handleNewItemSubmit={handleNewItemSubmit}
+            handleDeleteBudgetCategory={handleDeleteBudgetCategory}
           />
             
         </div>
@@ -122,6 +137,7 @@ function App() {
           budgetItems={budgetItems}
           setBudgetItems={setBudgetItems}
           budgetCategories={budgetCategories}
+          handleDeleteCategoryItem={handleDeleteCategoryItem}
           />
       </div>
     </div>
